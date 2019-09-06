@@ -1,25 +1,27 @@
 #include <iostream>
-#include <string>
-#include <cstdlib>
 using namespace std;
-int main() {
-    string n;
-    cout<<"Ingrese un número entero de 8 dígitos para su identificación: ";
-    cin>>n;
-    char quinto=n[4], sexto=n[5], ultimos=n[6,7];
-    if (atoi(const char quinto)%2==0){
-        cout<<"El SOAT está vigente.";
-    } else{
-        cout<<"EL SOAT está vencido.";
+int main(){
+    int C, autorizacion, CITV, SOAT;
+    do{
+        cout<<"Ingresar numero de identificacion valido";
+        cin>>C;
+    } while (C<=11111111 || C>=99999999);
+    autorizacion=C%100;
+    CITV=(C-autorizacion)/100%10;
+    SOAT=(C-CITV)/1000%10;
+    if (SOAT%2==0){
+        cout<<"\nSOAT vigente\n";
+    } else {
+        cout<<"\nSOAT vencido\n";
     }
-    if (atoi(const char sexto)%2==0){
-        cout<<"El CITV está vigente.";
-    } else{
-        cout<<"EL CITV está vencido.";
+    if (CITV%2==0){
+        cout<<"\nCITV vigente\n";
+    } else {
+        cout<<"\nCITV vencido\n";
     }
-    if (atoi(const char ultimos)%2==0){
-        cout<<"AUTORIZADO.";
-    } else{
-        cout<<"NO AUTORIZADO.";
+    if (autorizacion%3==0){
+        cout<<"\nAutorizado\n";
+    } else {
+        cout<<"\nNo autorizado\n";
     }
 }
